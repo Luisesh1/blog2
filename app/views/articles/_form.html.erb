@@ -1,0 +1,17 @@
+<%accion ||= "Crear"%>
+<h1><%=accion%> articulo</h1>
+<%= form_for(@article) do |f|%>
+	<%@article.errors.full_messages.each do |m|%>
+		*<%=m%>
+		</br>
+	<%end%>
+	<div class= "field">
+		<%= f.text_field :title,placeholder: "Titulo",class:"form-control"%>
+	</div>
+	<div class= "field">
+		<%= f.text_area :body,placeholder: "Escribe aqui",class:"form-control"%>
+	</div>
+	<div class= "field">
+		<%= f.submit "guardar", class: "form-control be-red white", style:"padding:10px; width: 100px;"%>
+	</div>
+<%end%>
